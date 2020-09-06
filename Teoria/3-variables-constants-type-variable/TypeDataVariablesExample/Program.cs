@@ -6,7 +6,7 @@ namespace TypeDataVariablesExample
     {
         static void Main(string[] args)
         {
-            /*Console.WriteLine("Tipos de datos numéricos - Enteros - Con signo");
+            Console.WriteLine("Tipos de datos numéricos - Enteros - Con signo");
             // sbyte
             // sbyte sbyteInvalid = 130; <--- ERROR sería un short
             sbyte sbyteValid = 120;
@@ -20,10 +20,10 @@ namespace TypeDataVariablesExample
             // int intValue = 332393944444444; // <-- ERROR sería un int
             shortValue = 3333;
             Console.WriteLine(shortValue);
-            int intValue = 333344444444444;
-            Console.WriteLine(intValue);*/
+            // int intValue = 333344444444444;
+            // Console.WriteLine(intValue);
 
-            /*Console.WriteLine("Tipos de datos numéricos - Enteros - SIN signo");
+            Console.WriteLine("Tipos de datos numéricos - Enteros - SIN signo");
             // byte
             // byte byteInvalid = 256; // <--- ERROR sería un ushort (POR fuera de rango)
             byte byteValid = 120;
@@ -38,7 +38,7 @@ namespace TypeDataVariablesExample
             // int intInvalidValue = -23; // <-- ERROR sería un int
             Console.WriteLine(intValue);
             // int intValue = 333344444444444;
-            // Console.WriteLine(intValue);*/
+            // Console.WriteLine(intValue);
 
             Console.WriteLine("Tipos de datos numéricos - NO Enteros");
             // double floatValue = 120202020239393939312020202023939391202020202393939393933333333333333333332120202020239393939393333333333333333333239393333333333333333333293333333333333333333212020202023939393939333333333333333333321202020202393939393933333333333333333332120202020239393939393333333333333333333212020202023939393939333333333333333333321202020202393939393933333333333333333332120202.03d;
@@ -46,6 +46,21 @@ namespace TypeDataVariablesExample
             double floatValue = 1202020202393939393120202020239393912020202023939393939333333333333333333321202020202393939393933333333333333333332393933333333333333333332933333333333333333332120202020239393939393333333333333333333212020202023939393939333333333333333333321202020202393939393933333333332.03d;
             Console.WriteLine(floatValue);
 
+            // bool
+            bool startGame = Convert.ToBoolean(0);
+            Console.WriteLine($"¿Juego iniciado? {startGame}");
+            startGame = false;
+            Console.WriteLine($"¿Juego iniciado? {startGame}");
+
+            // char
+
+            char zeroBasic = 'a';
+            char zeroUnicode = '\u0061';
+            char zeroDecimal = Convert.ToChar(97);
+
+            Console.WriteLine($"Básico: {zeroBasic}");
+            Console.WriteLine($"Unicode: {zeroUnicode}");
+            Console.WriteLine($"Decimal: {zeroDecimal}");
         }
     }
 }
