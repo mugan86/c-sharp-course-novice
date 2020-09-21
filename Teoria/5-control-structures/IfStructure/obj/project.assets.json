@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/5-collections/Arrays/Arrays.csproj",
-      "projectName": "Arrays",
-      "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/5-collections/Arrays/Arrays.csproj",
+      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/5-control-structures/IfStructure/IfStructure.csproj",
+      "projectName": "IfStructure",
+      "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/5-control-structures/IfStructure/IfStructure.csproj",
       "packagesPath": "/Users/anartz/.nuget/packages/",
-      "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/5-collections/Arrays/obj/",
+      "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/5-control-structures/IfStructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/anartz/.nuget/NuGet/NuGet.Config"
