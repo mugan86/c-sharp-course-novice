@@ -95,7 +95,7 @@ namespace IfStructure
 
             // If Anidado con If else if else
             Console.WriteLine("Introduzca la nota entre 1 y 10 (incluidos):");
-            int calification = Convert.ToInt32(Console.ReadLine());
+            calification = Convert.ToInt32(Console.ReadLine());
             if (calification >= 1 && calification <= 10)
             {
                 Console.WriteLine("Nota introducida correctamente");
