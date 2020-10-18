@@ -1,2 +1,2 @@
 # c-sharp-course-novice
-Código correspondiente al curso básico de C#
+Código correspondiente al curso de C#
