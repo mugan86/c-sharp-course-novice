@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj": {}
+    "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionInvalidCast/ExceptionInvalidCast.csproj": {}
   },
   "projects": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj": {
+    "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionInvalidCast/ExceptionInvalidCast.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj",
-        "projectName": "MensajePant",
-        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj",
+        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionInvalidCast/ExceptionInvalidCast.csproj",
+        "projectName": "ExceptionInvalidCast",
+        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionInvalidCast/ExceptionInvalidCast.csproj",
         "packagesPath": "/Users/anartz/.nuget/packages/",
-        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/obj/",
+        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionInvalidCast/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/anartz/.nuget/NuGet/NuGet.Config"

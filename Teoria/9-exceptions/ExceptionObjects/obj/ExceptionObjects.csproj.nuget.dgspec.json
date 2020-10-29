@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj": {}
+    "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionObjects/ExceptionObjects.csproj": {}
   },
   "projects": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj": {
+    "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionObjects/ExceptionObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj",
-        "projectName": "MensajePant",
-        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/MensajePant.csproj",
+        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionObjects/ExceptionObjects.csproj",
+        "projectName": "ExceptionObjects",
+        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionObjects/ExceptionObjects.csproj",
         "packagesPath": "/Users/anartz/.nuget/packages/",
-        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/2-manejo-mensajes-pantalla/MensajePant/obj/",
+        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/9-exceptions/ExceptionObjects/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/anartz/.nuget/NuGet/NuGet.Config"
