@@ -9,7 +9,7 @@ namespace StrangleGame
         {
             Console.WriteLine("Hello World");
             Game gameObject = new Game();
-            // gameObject.draw(5);
+            gameObject.Play();
         }
     }
 
@@ -21,20 +21,22 @@ namespace StrangleGame
         public string GameWordsChars { get; set; }
         public List<char> InputCharsList { get; set; }
         // https://docs.microsoft.com/es-es/dotnet/api/system.string.tochararray?view=netcore-3.1
-        public char[] HideWordChars { get; set; }
+        public List<char> HideWordChars { get; set; }
         // Teniendo en cuenta la palabra correcta, se almacena la información correcta
         public List<char> CorrectChars { get; set; }
         public Game()
         {
             Attemps = 6;
             HideWord = "Anartz Mugika";
-            HideWordChars = (HideWord.ToLower()).ToCharArray();
+            // Adaptamos en un array de carácteres la palabra secreta
+            char[] hideWords = (HideWord.ToLower()).ToCharArray();
+            HideWordChars = new List<char>(hideWords);
             GameWordsChars = "";
-            Console.WriteLine(HideWordChars.Length);
+            Console.WriteLine(HideWordChars.Count);
             // Tenemos almacenados todos los carácteres si existe
             CorrectChars = new List<char>(HideWordChars);
             InputCharsList = new List<char>();
-            for (int i = 0; i < HideWordChars.Length; i++)
+            for (int i = 0; i < HideWordChars.Count; i++)
             {
 
                 if (HideWordChars[i] != ' ')
@@ -48,64 +50,102 @@ namespace StrangleGame
                     GameWordsChars += "....";
                 }
             }
+            Console.Clear();
+            DrawGameImage();
+            Console.WriteLine("Palabra a buscar: ");
             Console.WriteLine(GameWordsChars);
-            Play();
         }
 
-        private void Play()
+        public void Play()
         {
-            while (Attemps >= 6)
+            while (Attemps > 0 && HideWordChars.Contains('_'))
             {
-                Console.Write("Introduzca letra: ");
+
+                Console.Write("\nIntroduzca letra: ");
+
                 char inputChar = Console.ReadLine()[0];
+
                 // Comprobar si 
                 Console.WriteLine("Introducido " + inputChar);
                 if (!InputCharsList.Contains(inputChar))
                 {
                     InputCharsList.Add(inputChar);
+                    if (InputCharsList.Count > 0 && inputChar != ' ')
+                    {
+                        Console.Clear();
+                    }
                     // Hacer jugada y mirar si existe en la palabra
                     CheckExisteCharInWord(inputChar);
-                    DrawHideWord();
+                    // Comprobar si la palabra ha sido acertada completamente
+                    if (HideWordChars.Contains('_') && Attemps > 0)
+                    {
+                        DrawGameImage();
+                        DrawHideWord();
+                    }
+
                 }
                 else
                 {
-                    Console.WriteLine("Ya existe");
+                    Console.WriteLine("Ya has introducido este carácter");
                 }
-                
-
+            }
+            if (Attemps == 0) {
+                DrawGameImage();
+            } else {
+                Console.WriteLine("Enhorabuena, has acertado la palabra oculta!!");
             }
         }
         private void CheckExisteCharInWord(char inputChar)
         {
             if (CorrectChars.Contains(inputChar))
             {
-                Console.WriteLine("Encontrado en la palabra, vamos a sustituir donde haya en el HideWordChars");
-                for (int i = 0; i < HideWordChars.Length; i++)
+                Console.WriteLine("Has acertado :)");
+                for (int i = 0; i < HideWordChars.Count; i++)
                 {
                     if (CorrectChars[i] == inputChar)
                     {
                         HideWordChars[i] = inputChar;
                     }
                 }
+                // C
+            }
+            else
+            {
+                Attemps--;
+                Console.WriteLine("Lo siento, no has acertado :(");
             }
         }
         private void DrawHideWord()
         {
-            GameWordsChars = "";
-            for (int i = 0; i < HideWordChars.Length; i++)
+            if (Attemps > 0)
             {
-                if (HideWordChars[i] == '_') {
-                    GameWordsChars += "_ ";
-                } else {
-                    GameWordsChars += HideWordChars[i];
+                GameWordsChars = "";
+                for (int i = 0; i < HideWordChars.Count; i++)
+                {
+                    if (HideWordChars[i] == '_')
+                    {
+                        GameWordsChars += "_ ";
+                    }
+                    else
+                    {
+                        GameWordsChars += HideWordChars[i] + " ";
+                    }
+
                 }
-                
+                Console.WriteLine(GameWordsChars);
             }
-            Console.WriteLine(GameWordsChars);
+            else
+            {
+                Console.WriteLine($"Partida finalizada. La palabra a acertar era {HideWord}");
+            }
+
         }
-        public void draw(int i)
+        private void DrawGameImage()
         {
-            switch (i)
+            Console.WriteLine("====================");
+            Console.WriteLine($"Intentos: {Attemps}");
+            Console.WriteLine("====================");
+            switch (Attemps)
             {
                 case 6:
                     Console.WriteLine(" ---------------------");
@@ -247,75 +287,4 @@ namespace StrangleGame
             }
         }
     }
-
-
-
-
-    /*
-    /**
-     * @author Luis Created on 28/08/2014, 11:18:58 PM
-
-    public class AhorcadoNormal {
-
-        public static void main(String[] args) {
-            Scanner s = new Scanner(System.in);
-            int vidas = 6;
-            String palabra;
-            int aciertos = 0;
-            int tamaño;
-            String opcion;
-            int contador = 0;
-            String[] palabras = new String[]{"lapiz", "goma", "libreta", "maestro", "examen", "matematicas"};
-            char[] respuesta;
-            palabra = palabras[(int) (Math.random() * 5)];
-            tamaño = palabra.length();
-            respuesta = new char[tamaño];
-
-
-            for (int i = 0; i <= tamaño; i++) {
-                respuesta[i] = 'X';
-            }
-
-
-            while (aciertos != tamaño &amp;&amp; vidas != 0) {
-                Console.WriteLine("=========AHORCADO :)==========          VIDAS="+vidas +" Aciertos= "+aciertos);
-                dibujar(vidas);
-                Console.WriteLine("");
-                for (int i = 0; i <= tamaño; i++) {
-
-                    System.out.print("__" + respuesta[i] + "___  ");
-                }
-                Console.WriteLine("\nIngresa una letra: ");
-                opcion = s.next();
-                if (palabra.contains(opcion)) {
-                    for (int i = 0; i <= tamaño; i++) {
-                        if (palabra.charAt(i) == opcion.charAt(0)) {
-                            respuesta[i] = opcion.charAt(0);
-                            contador++;
-                        }
-                    }
-
-                    aciertos = aciertos + contador;
-                } else {
-                    vidas--;
-                }
-
-                contador = 0;
-            }
-            if(vidas==0){
-                dibujar(vidas);
-            }else
-            {
-                Console.WriteLine("");
-                for (int i = 0; i <= tamaño; i++) {
-
-                    System.out.print("__" + respuesta[i] + "___  ");
-                }
-                Console.WriteLine("YOU WIN :)");
-
-            }
-        }
-
-    }
-    */
 }
