@@ -23,7 +23,7 @@ namespace StrangleGame
         // https://docs.microsoft.com/es-es/dotnet/api/system.string.tochararray?view=netcore-3.1
         public char[] HideWordChars { get; set; }
         // Teniendo en cuenta la palabra correcta, se almacena la información correcta
-        public char[] CorrectChars { get; set; }
+        public List<char> CorrectChars { get; set; }
         public Game()
         {
             Attemps = 6;
@@ -31,7 +31,8 @@ namespace StrangleGame
             HideWordChars = (HideWord.ToLower()).ToCharArray();
             GameWordsChars = "";
             Console.WriteLine(HideWordChars.Length);
-            CorrectChars = (char[])HideWordChars.Clone();
+            // Tenemos almacenados todos los carácteres si existe
+            CorrectChars = new List<char>(HideWordChars);
             InputCharsList = new List<char>();
             for (int i = 0; i < HideWordChars.Length; i++)
             {
@@ -59,14 +60,48 @@ namespace StrangleGame
                 char inputChar = Console.ReadLine()[0];
                 // Comprobar si 
                 Console.WriteLine("Introducido " + inputChar);
-                if (!InputCharsList.Contains(inputChar)) {
+                if (!InputCharsList.Contains(inputChar))
+                {
                     InputCharsList.Add(inputChar);
                     // Hacer jugada y mirar si existe en la palabra
-                } else {
+                    CheckExisteCharInWord(inputChar);
+                    DrawHideWord();
+                }
+                else
+                {
                     Console.WriteLine("Ya existe");
                 }
                 
+
             }
+        }
+        private void CheckExisteCharInWord(char inputChar)
+        {
+            if (CorrectChars.Contains(inputChar))
+            {
+                Console.WriteLine("Encontrado en la palabra, vamos a sustituir donde haya en el HideWordChars");
+                for (int i = 0; i < HideWordChars.Length; i++)
+                {
+                    if (CorrectChars[i] == inputChar)
+                    {
+                        HideWordChars[i] = inputChar;
+                    }
+                }
+            }
+        }
+        private void DrawHideWord()
+        {
+            GameWordsChars = "";
+            for (int i = 0; i < HideWordChars.Length; i++)
+            {
+                if (HideWordChars[i] == '_') {
+                    GameWordsChars += "_ ";
+                } else {
+                    GameWordsChars += HideWordChars[i];
+                }
+                
+            }
+            Console.WriteLine(GameWordsChars);
         }
         public void draw(int i)
         {
