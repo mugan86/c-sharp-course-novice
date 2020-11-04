@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;  // include the System.IO namespace to use File
 namespace StrangleGame
 {
     class Program
@@ -27,7 +27,7 @@ namespace StrangleGame
         public Game()
         {
             Attemps = 6;
-            HideWord = "Anartz Mugika";
+            HideWord = GetHideWord();
             // Adaptamos en un array de carácteres la palabra secreta
             char[] hideWords = (HideWord.ToLower()).ToCharArray();
             HideWordChars = new List<char>(hideWords);
@@ -47,7 +47,7 @@ namespace StrangleGame
                 }
                 else
                 {
-                    GameWordsChars += "....";
+                    GameWordsChars += "    ";
                 }
             }
             Console.Clear();
@@ -56,6 +56,20 @@ namespace StrangleGame
             Console.WriteLine(GameWordsChars);
         }
 
+				private string GetHideWord() {
+					List<string> hideWords = LoadWords();
+					// https://docs.microsoft.com/es-es/dotnet/api/system.random.next?view=netcore-3.1
+					Random rnd = new Random();
+          return hideWords[rnd.Next(0, hideWords.Count)]; 
+				}
+
+				private List<string> LoadWords() {
+					 string readText = File.ReadAllText("countries.txt");  // Read the contents of the file
+		       string [] words = readText.Split("\n");
+	         // Console.WriteLine(words.Length);  // Output the content
+					 return new List<string>(words);
+				}
+
         public void Play()
         {
             while (Attemps > 0 && HideWordChars.Contains('_'))
@@ -63,11 +77,17 @@ namespace StrangleGame
 
                 Console.Write("\nIntroduzca letra: ");
 
-                char inputChar = Console.ReadLine()[0];
+                
+                char inputChar;
+								try {
+                   inputChar = Console.ReadLine()[0];
+								} catch (IndexOutOfRangeException) {
+									 inputChar = ' ';
+								}
 
                 // Comprobar si 
                 Console.WriteLine("Introducido " + inputChar);
-                if (!InputCharsList.Contains(inputChar))
+                if (!InputCharsList.Contains(inputChar) && inputChar != ' ')
                 {
                     InputCharsList.Add(inputChar);
                     if (InputCharsList.Count > 0 && inputChar != ' ')
@@ -83,9 +103,7 @@ namespace StrangleGame
                         DrawHideWord();
                     }
 
-                }
-                else
-                {
+                } else if (InputCharsList.Contains(inputChar)) {
                     Console.WriteLine("Ya has introducido este carácter");
                 }
             }
@@ -282,7 +300,7 @@ namespace StrangleGame
 
                     }
                     Console.WriteLine("__________");
-                    Console.WriteLine("GAME OVER");
+                    Console.WriteLine($"GAME OVER - La palabra a acertar era \"{HideWord}\"");
                     break;
             }
         }
