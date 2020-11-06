@@ -7,7 +7,6 @@ namespace StrangleGame
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
             Game gameObject = new Game();
             gameObject.Play();
         }
@@ -80,14 +79,16 @@ namespace StrangleGame
                 
                 char inputChar;
 								try {
-                   inputChar = Console.ReadLine()[0];
+                   inputChar = (Console.ReadLine()).ToLower()[0];
+									  // Comprobar si 
+                   Console.WriteLine("Introducido " + inputChar);
 								} catch (IndexOutOfRangeException) {
+									Console.WriteLine("Introduzca un carácter que sea entre a y z");
 									 inputChar = ' ';
 								}
 
-                // Comprobar si 
-                Console.WriteLine("Introducido " + inputChar);
-                if (!InputCharsList.Contains(inputChar) && inputChar != ' ')
+               if ( inputChar >= 'a' && inputChar <= 'z') {
+								 if (!InputCharsList.Contains(inputChar) && inputChar != ' ')
                 {
                     InputCharsList.Add(inputChar);
                     if (InputCharsList.Count > 0 && inputChar != ' ')
@@ -106,6 +107,10 @@ namespace StrangleGame
                 } else if (InputCharsList.Contains(inputChar)) {
                     Console.WriteLine("Ya has introducido este carácter");
                 }
+							 } else {
+								 Console.WriteLine("Introduzca un carácter que sea entre a y z");
+							 }
+                
             }
             if (Attemps == 0) {
                 DrawGameImage();
@@ -306,3 +311,4 @@ namespace StrangleGame
         }
     }
 }
+
