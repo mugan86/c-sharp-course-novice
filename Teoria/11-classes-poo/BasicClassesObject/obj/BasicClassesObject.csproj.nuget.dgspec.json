@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anartz/Desktop/curso_c#/Proyecto/StrangleGame/StrangleGame.csproj": {}
+    "/Users/anartz/Desktop/curso_c#/Teoria/11-classes-poo/BasicClassesObject/BasicClassesObject.csproj": {}
   },
   "projects": {
-    "/Users/anartz/Desktop/curso_c#/Proyecto/StrangleGame/StrangleGame.csproj": {
+    "/Users/anartz/Desktop/curso_c#/Teoria/11-classes-poo/BasicClassesObject/BasicClassesObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Proyecto/StrangleGame/StrangleGame.csproj",
-        "projectName": "StrangleGame",
-        "projectPath": "/Users/anartz/Desktop/curso_c#/Proyecto/StrangleGame/StrangleGame.csproj",
+        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/11-classes-poo/BasicClassesObject/BasicClassesObject.csproj",
+        "projectName": "BasicClassesObject",
+        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/11-classes-poo/BasicClassesObject/BasicClassesObject.csproj",
         "packagesPath": "/Users/anartz/.nuget/packages/",
-        "outputPath": "/Users/anartz/Desktop/curso_c#/Proyecto/StrangleGame/obj/",
+        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/11-classes-poo/BasicClassesObject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/anartz/.nuget/NuGet/NuGet.Config"
