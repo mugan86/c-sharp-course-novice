@@ -8,6 +8,12 @@ namespace CharacterSuperMario64
         public float Height
         { get; set; }
         
+        public Bowser(float height = 4.5f): base("Bowser", false, "") {
+            Height = height;
+            base.ShowDetails(); // Name, Hero, Alias
+            Console.WriteLine("Altura: {0}", Height);
+
+        }
         // Métodos
 
         // Escupir fuego

@@ -12,6 +12,18 @@ namespace CharacterSuperMario64
         public string Alias
         { get; set; }
 
+        public Character() {
+            Name = "Personaje general";
+            Hero = true;
+            Alias = "Alias Personaje general";
+        }
+
+        public Character(string name, bool hero, string alias) {
+            Name = name;
+            Hero = hero;
+            Alias = alias;
+        }
+
         // Métodos
         public void Move() {
             Console.WriteLine($"Soy { Name } y me estoy moviendo");

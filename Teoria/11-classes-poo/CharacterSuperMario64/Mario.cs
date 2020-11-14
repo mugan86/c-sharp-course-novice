@@ -7,6 +7,12 @@ namespace CharacterSuperMario64
         // Atributos
         public string Work
         { get; set; }
+
+        public Mario(string work = "Plumber"): base("Mario", true, "") {
+            Work = work;
+            base.ShowDetails(); // Name, Hero, Alias
+            Console.WriteLine("Profesión: {0}", Work);
+        }
         
         // Métodos
 
