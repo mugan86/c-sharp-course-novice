@@ -13,12 +13,15 @@ namespace CharacterSuperMario64
             mario.CollectMoneys();
             mario.Jump();
             mario.Swim();
+            mario.ShowDetails();
             Bowser bowser = new Bowser();
             bowser.Move();
             bowser.DobleJump();
             bowser.ShootFire();
+            bowser.ShowDetails();
             MamaPinguino mp = new MamaPinguino();
             mp.Move();
+            mp.ShowDetails();
         }
     }
 }

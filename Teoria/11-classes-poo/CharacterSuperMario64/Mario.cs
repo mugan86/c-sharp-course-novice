@@ -10,8 +10,6 @@ namespace CharacterSuperMario64
 
         public Mario(string work = "Plumber"): base("Mario", true, "") {
             Work = work;
-            base.ShowDetails(); // Name, Hero, Alias
-            Console.WriteLine("Profesión: {0}", Work);
         }
         
         // Métodos
@@ -35,6 +33,11 @@ namespace CharacterSuperMario64
         // Nadar
         public void Swim() {
             Console.WriteLine("Mario está nadando");
+        }
+        public override void ShowDetails()
+        {
+            base.ShowDetails(); // Name, Hero, Alias
+            Console.WriteLine("Profesión: {0}", Work);
         }
     }
 }

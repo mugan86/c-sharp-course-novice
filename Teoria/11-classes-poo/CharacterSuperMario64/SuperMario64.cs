@@ -28,7 +28,7 @@ namespace CharacterSuperMario64
         public void Move() {
             Console.WriteLine($"Soy { Name } y me estoy moviendo");
         }
-        public void ShowDetails() {
+        public virtual void ShowDetails() {
             Console.WriteLine("====================PERSONAJE====================");
             Console.WriteLine("Nombre: {0}", Name);
             Console.WriteLine("¿Es heroe? {0}", Hero);

@@ -10,9 +10,6 @@ namespace CharacterSuperMario64
         
         public Bowser(float height = 4.5f): base("Bowser", false, "") {
             Height = height;
-            base.ShowDetails(); // Name, Hero, Alias
-            Console.WriteLine("Altura: {0}", Height);
-
         }
         // Métodos
 
@@ -23,6 +20,12 @@ namespace CharacterSuperMario64
         // Doble salto
         public void DobleJump() {
             Console.WriteLine("Bowser está saltando x2");
+        }
+
+        public override void ShowDetails()
+        {
+            base.ShowDetails();
+            Console.WriteLine("Altura: {0}", Height);
         }
     }
 }
