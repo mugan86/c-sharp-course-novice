@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace StrangleGame
 {
@@ -21,7 +22,7 @@ namespace StrangleGame
             // Intentos por defecto 6
             Attemps = 6;
             // Añadimos palabra oculta fija
-            HideWord = "mario bros";
+            HideWord = GetHideWord();
             // Convertir el string en un array de carácteres para aplicar las listas necesarias
             char [] charListElements = (HideWord.ToLower()).ToCharArray();
 
@@ -40,14 +41,12 @@ namespace StrangleGame
                     GameWordChardsShow += "  ";
                 }
             }
-            DrawGameImage();
-            Console.WriteLine("Palabra a buscar: ");
-            Console.WriteLine(GameWordChardsShow);
+            Draw.Image(Attemps, HideWord);
+            Draw.HideWord(GameWordChardsShow);
         }
         public void Play() {
             // Mientras jugamos
             while(Attemps > 0 && HideWordChars.Contains('_')) {
-                Console.WriteLine("Intentos: {0}", Attemps);
                 // Introducir el carácter desde la consola con el teclado
                 char inputChar = ' ';
                 Console.Write("\nIntroduzca la letra: ");
@@ -62,15 +61,16 @@ namespace StrangleGame
 
                 // Conprobar que es un carácter válido
                 if (inputChar >= 'a' && inputChar <= 'z') {
-                    Console.WriteLine("Caracter válido, empezaremos con las comprobaciones");
                     // Comprobar si ese caracter se ha introducido
                     if (!InputCharsList.Contains(inputChar)) {
+                        Console.Clear();
                         // Añadir para no repetir caracteres
                         InputCharsList.Add(inputChar);
                         // Comprobar si existe en la palabra oculta
                         CheckExistCharInWord(inputChar);
                         // Dibujar el estado dependiendo del resultado dado en la comprobación
-                        DrawGameImage();
+                        Draw.Image(Attemps, HideWord);
+                        Draw.HideWord(GameWordChardsShow);
                     } else {
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Ya has introducido el caracter '{0}'. Prueba de nuevo por favor con otro caracter", inputChar);
@@ -80,22 +80,36 @@ namespace StrangleGame
             }
             // Partida finalizada
             if (Attemps == 0) {
-                DrawGameImage();
+                Draw.Image(Attemps, HideWord);
             } else if (!HideWordChars.Contains('_')) {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Enhorabuena, has ganado");
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
+        private string GetHideWord() {
+            List<string> hideWords = LoadWordChars();
+            Random random = new Random();
+            int numberRandom = random.Next(0, hideWords.Count);
+            return hideWords[numberRandom];
+        }
+        private List<string> LoadWordChars () {
+            string loadtText = File.ReadAllText(@"data/sagas-miticas.txt");
+
+            string [] words = loadtText.Split("\n");
+            return new List<string>(words);
+        }
         private void CheckExistCharInWord(char inputChar) {
             // Comprobar que existe dentro de CorrectChars
             if (CorrectChars.Contains(inputChar)) {
                 // Hemos acertado
+                GameWordChardsShow = "";
                 Console.WriteLine("Has acertado :).");
                 for(int i = 0; i < HideWordChars.Count; i++) {
                     if (CorrectChars[i] == inputChar) {
                         HideWordChars[i] = inputChar;
                     }
+                    GameWordChardsShow += (HideWordChars[i] != ' ') ? HideWordChars[i] + " ": "   "; 
                 }
             } else {
                 // NO hemos acertado
@@ -103,154 +117,6 @@ namespace StrangleGame
                 Console.WriteLine("No has acertadp, lo siento :(");
             }
         }
-        private void DrawGameImage()
-        {
-            Console.WriteLine("====================");
-            Console.WriteLine($"Intentos: {Attemps}");
-            Console.WriteLine("====================");
-            switch (Attemps)
-            {
-                case 6:
-                    Console.WriteLine(" ---------------------");
-                    for (int j = 0; j <= 15; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 5:
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | -  -  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    for (int j = 0; j <= 10; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 4:
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | -  -  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                     |   ");
-                    for (int j = 0; j <= 5; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 3:
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | -  -  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                   / |   ");
-                    Console.WriteLine(" |                 /   |   ");
-                    Console.WriteLine(" |                /    |   ");
-                    Console.WriteLine(" |                     |   ");
-                    for (int j = 0; j <= 5; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 2:
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | -  -  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                   / | \\ ");
-                    Console.WriteLine(" |                  /  |   \\ ");
-                    Console.WriteLine(" |                 /   |     \\ ");
-                    Console.WriteLine(" |                     |   ");
-                    for (int j = 0; j <= 5; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 1:
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | -  -  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                   / | \\ ");
-                    Console.WriteLine(" |                  /  |   \\ ");
-                    Console.WriteLine(" |                 /   |     \\ ");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                    /  ");
-                    Console.WriteLine(" |                   /      ");
-                    Console.WriteLine(" |                  /       ");
-                    for (int j = 0; j <= 2; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    break;
-
-                case 0:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"GAME OVER - La palabra oculta es \"{HideWord}\"");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" ---------------------");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                     |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                 | X  X  |");
-                    Console.WriteLine(" |                 |   o   |");
-                    Console.WriteLine(" |                  -------");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                   / | \\ ");
-                    Console.WriteLine(" |                  /  |   \\ ");
-                    Console.WriteLine(" |                 /   |     \\ ");
-                    Console.WriteLine(" |                     |   ");
-                    Console.WriteLine(" |                    / \\");
-                    Console.WriteLine(" |                   /   \\  ");
-                    Console.WriteLine(" |                  /     \\ ");
-                    for (int j = 0; j <= 2; j++)
-                    {
-                        Console.WriteLine(" |");
-
-                    }
-                    Console.WriteLine("__________");
-                    
-                    break;
-            }
-        }
+        
     }
 }
