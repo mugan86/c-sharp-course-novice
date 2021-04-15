@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Practica/2-manejo-mensajes-pantalla/EjercicioFinal/EjercicioFinal.csproj",
-      "projectName": "EjercicioFinal",
-      "projectPath": "/Users/anartz/Desktop/curso_c#/Practica/2-manejo-mensajes-pantalla/EjercicioFinal/EjercicioFinal.csproj",
+      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/13/Exercise.csproj",
+      "projectName": "Exercise",
+      "projectPath": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/13/Exercise.csproj",
       "packagesPath": "/Users/anartz/.nuget/packages/",
-      "outputPath": "/Users/anartz/Desktop/curso_c#/Practica/2-manejo-mensajes-pantalla/EjercicioFinal/obj/",
+      "outputPath": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/13/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/anartz/.nuget/NuGet/NuGet.Config"

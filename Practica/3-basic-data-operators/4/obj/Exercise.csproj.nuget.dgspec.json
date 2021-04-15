@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/3-variables-constants-type-variable/OperatorsAritmetic/OperatorsAritmetic.csproj": {}
+    "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/4/Exercise.csproj": {}
   },
   "projects": {
-    "/Users/anartz/Desktop/curso_c#/Teoria/3-variables-constants-type-variable/OperatorsAritmetic/OperatorsAritmetic.csproj": {
+    "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/4/Exercise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Teoria/3-variables-constants-type-variable/OperatorsAritmetic/OperatorsAritmetic.csproj",
-        "projectName": "OperatorsAritmetic",
-        "projectPath": "/Users/anartz/Desktop/curso_c#/Teoria/3-variables-constants-type-variable/OperatorsAritmetic/OperatorsAritmetic.csproj",
+        "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/4/Exercise.csproj",
+        "projectName": "Exercise",
+        "projectPath": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/4/Exercise.csproj",
         "packagesPath": "/Users/anartz/.nuget/packages/",
-        "outputPath": "/Users/anartz/Desktop/curso_c#/Teoria/3-variables-constants-type-variable/OperatorsAritmetic/obj/",
+        "outputPath": "/Users/anartz/Desktop/curso_c#/Practica/3-basic-data-operators/4/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/anartz/.nuget/NuGet/NuGet.Config"

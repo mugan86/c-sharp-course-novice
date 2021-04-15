@@ -1,5 +1,4 @@
-﻿using System;
-namespace CharacterSuperMario64
+﻿namespace CharacterSuperMario64
 {
     class Program
     {
