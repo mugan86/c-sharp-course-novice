@@ -32,7 +32,11 @@ namespace Exercise
                 numbersArray[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            Console.Write("\nLos elementos del array son: ");
+            string finalMessage = (valuesCount == 1) ?
+            "\nEl único elemento del array es: " :
+            "\nLos elementos del array son: ";
+
+            Console.Write(finalMessage);
             for (i = 0; i < valuesCount; i++)
             {
                 if (i == valuesCount - 1)

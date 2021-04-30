@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/3/Exercise.csproj",
+      "projectUniqueName": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/4_b/Exercise.csproj",
       "projectName": "Exercise",
-      "projectPath": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/3/Exercise.csproj",
+      "projectPath": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/4_b/Exercise.csproj",
       "packagesPath": "/Users/anartz/.nuget/packages/",
-      "outputPath": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/3/obj/",
+      "outputPath": "/Users/anartz/Desktop/curso_c#/Practica/6_7-arrays_loops/4_b/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/anartz/.nuget/NuGet/NuGet.Config"
