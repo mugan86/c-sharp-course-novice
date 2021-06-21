@@ -4,7 +4,7 @@ namespace Exercise
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             /*
                 Introduzca la lista de la compra con los precios de 5 productos (donde recogemos por teclado el precio que puede tener decimales en cada caso). Le aplicaremos el total de lo que gastaremos y le aplicamos el IVA del 21%.
